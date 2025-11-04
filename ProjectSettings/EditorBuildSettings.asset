@@ -6,12 +6,14 @@ EditorBuildSettings:
   serializedVersion: 2
   m_Scenes:
   - enabled: 1
-    path: Assets/Scenes/SampleScene.unity
-    guid: 99c9720ab356a0642a771bea13969a05
+    path: Assets/01.Scenes/Main/Book.unity
+    guid: b003e23c4a135784e9ce7c4739a4fbe6
+  - enabled: 0
+    path: Assets/01.Scenes/ImageTrackingDemo.unity
+    guid: 6f5d9dbedffdc724eb36aed0deb767dc
   m_configObjects:
-    UnityEditor.XR.ARCore.ARCoreSettings: {fileID: 11400000, guid: f8c5aafd7d15981499f60722db7c4090, type: 2}
-    UnityEditor.XR.ARKit.ARKitSettings: {fileID: 11400000, guid: bec92eaa28a78a74f8d4893390769797, type: 2}
+    UnityEditor.XR.ARCore.ARCoreSettings: {fileID: 11400000, guid: 21ddc135dd710044c8589db0a18da1e3, type: 2}
     com.unity.input.settings.actions: {fileID: -944628639613478452, guid: 052faaac586de48259a63d0c4782560b, type: 3}
-    com.unity.xr.arfoundation.simulation_settings: {fileID: 11400000, guid: e4aee1a8b1016ed47ba96f2ddd440611, type: 2}
-    com.unity.xr.openxr.settings4: {fileID: 11400000, guid: b60343d700d5f534cb321f95c27c15bc, type: 2}
+    com.unity.xr.arfoundation.simulation_settings: {fileID: 11400000, guid: 10483fd418e25034b8144d8fb11b20c4, type: 2}
+    com.unity.xr.management.loader_settings: {fileID: 11400000, guid: 0136f20362a11dd4f8c4a63f33add685, type: 2}
   m_UseUCBPForAssetBundles: 0
