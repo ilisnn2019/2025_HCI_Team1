@@ -6,7 +6,8 @@ public class QuestManager : MonoBehaviour
     public static QuestManager Instance { get; private set; }
 
     [Header("Quest Flow")]
-    public int currentQuestIndex = 0; // 현재 진행해야 할 퀘스트 인덱스
+    
+    public int currentQuestIndex = 0; // 현재 역할 없음
 
     // 2. 현재 활성화된 퀘스트를 추적하기 위한 참조
     [SerializeField] private Quest currentActiveQuest = null;
@@ -55,16 +56,6 @@ public class QuestManager : MonoBehaviour
     /// </summary>
     public void RegisterAndAttemptStart(Quest quest)
     {
-        // 이 퀘스트가 현재 진행해야 할 퀘스트인지 확인
-        if (quest.questIndex == currentQuestIndex)
-        {
-            Debug.Log($"[QuestManager] 퀘스트 '{quest.displayName}' (Index: {quest.questIndex}) 등록 및 시작.");
-
-            // 다른 퀘스트가 활성화되어 있었다면 비활성화 (예외 처리)
-            if (currentActiveQuest != null && currentActiveQuest != quest)
-            {
-                currentActiveQuest.gameObject.SetActive(false);
-            }
             
             currentActiveQuest = quest;
             
@@ -76,13 +67,7 @@ public class QuestManager : MonoBehaviour
 
             // Quest 내부의 시작 로직 호출
             currentActiveQuest.StartQuestInternal();
-        }
-        else
-        {
-            // 순서가 맞지 않는 퀘스트 (예: 1번 마커 대신 2번 마커를 비춤)
-            Debug.LogWarning($"[QuestManager] 퀘스트 '{quest.displayName}' (Index: {quest.questIndex})가 등록되었으나, 현재 퀘스트 순서({currentQuestIndex})가 아닙니다. 비활성화합니다.");
-            quest.gameObject.SetActive(false);
-        }
+        
     }
 
     // 7. StartQuest(int index) 이벤트 핸들러 제거 (또는 다른 용도로 수정)
