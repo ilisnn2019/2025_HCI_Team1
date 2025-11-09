@@ -863,7 +863,7 @@ MonoBehaviour:
   trackedImageManager: {fileID: 2103693796}
   groupAPrefabs:
   - imageName: Page7
-    prefab: {fileID: 3851526670604369803, guid: 41b7194c6d0c1c742bfc28349e120029, type: 3}
+    prefab: {fileID: 1405784522747061223, guid: 4850ac6df8dab3f4882085e4291a8785, type: 3}
   - imageName: Page10
     prefab: {fileID: 3851526670604369803, guid: 3c36f4bec806c7f419bf0d50dbe60832, type: 3}
   - imageName: Page14

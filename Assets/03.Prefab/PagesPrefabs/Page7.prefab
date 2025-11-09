@@ -63,6 +63,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
+  - {fileID: 6841918615027699275}
   - {fileID: 194114515004470278}
   m_Father: {fileID: 1423864561953669598}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -193,6 +194,68 @@ CapsuleCollider:
   m_Height: 2
   m_Direction: 1
   m_Center: {x: 0.000000059604645, y: 0, z: -0.00000008940697}
+--- !u!1001 &6998686087293836311
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    serializedVersion: 3
+    m_TransformParent: {fileID: 333510542581147049}
+    m_Modifications:
+    - target: {fileID: 1328289947586690402, guid: 06946804c97f3ae499d58439ea8e9514, type: 3}
+      propertyPath: m_Name
+      value: TimeLineStep
+      objectReference: {fileID: 0}
+    - target: {fileID: 4599076065737298524, guid: 06946804c97f3ae499d58439ea8e9514, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4599076065737298524, guid: 06946804c97f3ae499d58439ea8e9514, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4599076065737298524, guid: 06946804c97f3ae499d58439ea8e9514, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4599076065737298524, guid: 06946804c97f3ae499d58439ea8e9514, type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 4599076065737298524, guid: 06946804c97f3ae499d58439ea8e9514, type: 3}
+      propertyPath: m_LocalRotation.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4599076065737298524, guid: 06946804c97f3ae499d58439ea8e9514, type: 3}
+      propertyPath: m_LocalRotation.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4599076065737298524, guid: 06946804c97f3ae499d58439ea8e9514, type: 3}
+      propertyPath: m_LocalRotation.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4599076065737298524, guid: 06946804c97f3ae499d58439ea8e9514, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4599076065737298524, guid: 06946804c97f3ae499d58439ea8e9514, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4599076065737298524, guid: 06946804c97f3ae499d58439ea8e9514, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+    m_RemovedGameObjects: []
+    m_AddedGameObjects: []
+    m_AddedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: 06946804c97f3ae499d58439ea8e9514, type: 3}
+--- !u!4 &6841918615027699275 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 4599076065737298524, guid: 06946804c97f3ae499d58439ea8e9514, type: 3}
+  m_PrefabInstance: {fileID: 6998686087293836311}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1001 &8248530331775387955
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -218,6 +281,10 @@ PrefabInstance:
       value: 
       objectReference: {fileID: 5268963150838263765}
     - target: {fileID: 346145900503732001, guid: e37012f59e4d71a41ac85fc7d5a1859b, type: 3}
+      propertyPath: OnStepStart.m_PersistentCalls.m_Calls.Array.size
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 346145900503732001, guid: e37012f59e4d71a41ac85fc7d5a1859b, type: 3}
       propertyPath: OnStepFinished.m_PersistentCalls.m_Calls.Array.size
       value: 0
       objectReference: {fileID: 0}
@@ -229,6 +296,10 @@ PrefabInstance:
       propertyPath: OnStepFinished.m_PersistentCalls.m_Calls.Array.data[0].m_Target
       value: 
       objectReference: {fileID: 5268963150838263765}
+    - target: {fileID: 346145900503732001, guid: e37012f59e4d71a41ac85fc7d5a1859b, type: 3}
+      propertyPath: OnStepStart.m_PersistentCalls.m_Calls.Array.data[0].m_CallState
+      value: 2
+      objectReference: {fileID: 0}
     - target: {fileID: 346145900503732001, guid: e37012f59e4d71a41ac85fc7d5a1859b, type: 3}
       propertyPath: OnStepFinished.m_PersistentCalls.m_Calls.Array.data[0].m_CallState
       value: 2
