@@ -1,0 +1,67 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!319 &31900000
+AvatarMask:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_Name: detective_below
+  m_Mask: 01000000000000000000000001000000010000000000000000000000000000000000000001000000010000000000000000000000
+  m_Elements:
+  - m_Path: 
+    m_Weight: 1
+  - m_Path: Armature.001
+    m_Weight: 0
+  - m_Path: Armature.001/spine0
+    m_Weight: 0
+  - m_Path: Armature.001/spine0/hipL
+    m_Weight: 1
+  - m_Path: Armature.001/spine0/hipL/legL
+    m_Weight: 1
+  - m_Path: Armature.001/spine0/hipL/legL/legL.001
+    m_Weight: 1
+  - m_Path: Armature.001/spine0/hipL/legL/legL.001/legL.001_end
+    m_Weight: 1
+  - m_Path: Armature.001/spine0/hipR
+    m_Weight: 1
+  - m_Path: Armature.001/spine0/hipR/legR
+    m_Weight: 1
+  - m_Path: Armature.001/spine0/hipR/legR/legR.001
+    m_Weight: 1
+  - m_Path: Armature.001/spine0/hipR/legR/legR.001/legR.001_end
+    m_Weight: 1
+  - m_Path: Armature.001/spine0/spine1
+    m_Weight: 0
+  - m_Path: Armature.001/spine0/spine1/spine2
+    m_Weight: 0
+  - m_Path: Armature.001/spine0/spine1/spine2/head
+    m_Weight: 0
+  - m_Path: Armature.001/spine0/spine1/spine2/head/head_end
+    m_Weight: 0
+  - m_Path: Armature.001/spine0/spine1/spine2/shoulderL
+    m_Weight: 0
+  - m_Path: Armature.001/spine0/spine1/spine2/shoulderL/armL
+    m_Weight: 0
+  - m_Path: Armature.001/spine0/spine1/spine2/shoulderL/armL/armL.001
+    m_Weight: 0
+  - m_Path: Armature.001/spine0/spine1/spine2/shoulderL/armL/armL.001/armL.001_end
+    m_Weight: 0
+  - m_Path: Armature.001/spine0/spine1/spine2/shoulderR
+    m_Weight: 0
+  - m_Path: Armature.001/spine0/spine1/spine2/shoulderR/armR
+    m_Weight: 0
+  - m_Path: Armature.001/spine0/spine1/spine2/shoulderR/armR/armR.001
+    m_Weight: 0
+  - m_Path: Armature.001/spine0/spine1/spine2/shoulderR/armR/armR.001/armR.001_end
+    m_Weight: 0
+  - m_Path: Body.001
+    m_Weight: 1
+  - m_Path: Head.001
+    m_Weight: 0
+  - m_Path: inner
+    m_Weight: 0
+  - m_Path: pant
+    m_Weight: 1
+  - m_Path: shirt
+    m_Weight: 0
