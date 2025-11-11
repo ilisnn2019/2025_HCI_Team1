@@ -29,7 +29,10 @@ public abstract class QuestStep : MonoBehaviour
     public virtual void OnEnable()
     {
         if(audioSource != null && stepAudioClip != null)
+        {
             audioSource.PlayOneShot(stepAudioClip);
+        }
+            
     }
 
     // 단계 완료

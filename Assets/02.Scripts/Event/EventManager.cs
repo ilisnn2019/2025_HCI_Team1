@@ -20,4 +20,10 @@ public static class EventManager
     {
         onFinishQuest?.Invoke(quest);
     }
+
+    public static event Action onMoreThanTwoCardDetected;
+    public static void MoreThanTwoCardDetected()
+    {
+        onMoreThanTwoCardDetected?.Invoke();
+    }
 }

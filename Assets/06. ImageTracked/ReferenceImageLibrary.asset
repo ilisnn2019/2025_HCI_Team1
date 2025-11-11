@@ -25,7 +25,7 @@ MonoBehaviour:
       m_GuidHigh: 4196882865800993800
     m_Size: {x: 0.45, y: 0.2900735}
     m_SpecifySize: 1
-    m_Name: Page7
+    m_Name: Page1
     m_Texture: {fileID: 2800000, guid: 84f0b109a4b3359408dcfdfbba523e3a, type: 3}
   - m_SerializedGuid:
       m_GuidLow: 5053081219155407467
@@ -35,7 +35,7 @@ MonoBehaviour:
       m_GuidHigh: 12736434983266796984
     m_Size: {x: 0.45, y: 0.29698935}
     m_SpecifySize: 1
-    m_Name: Page10
+    m_Name: Page2
     m_Texture: {fileID: 2800000, guid: b4155b677986b0c4b8c5790223e8c0b0, type: 3}
   - m_SerializedGuid:
       m_GuidLow: 5215928376188554885
@@ -45,7 +45,7 @@ MonoBehaviour:
       m_GuidHigh: 15105523425979651195
     m_Size: {x: 0.45, y: 0.29596576}
     m_SpecifySize: 1
-    m_Name: Page14
+    m_Name: Page3
     m_Texture: {fileID: 2800000, guid: f9920472c9977e247bd4dbff8599a1d1, type: 3}
   - m_SerializedGuid:
       m_GuidLow: 5713532003016906922
@@ -55,5 +55,5 @@ MonoBehaviour:
       m_GuidHigh: 10921494986174105640
     m_Size: {x: 0.45, y: 0.28603026}
     m_SpecifySize: 1
-    m_Name: Page15
+    m_Name: Page4
     m_Texture: {fileID: 2800000, guid: 757e7b46720ad6b428081e4bd3f19097, type: 3}
