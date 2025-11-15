@@ -57,4 +57,12 @@ public class LocalDotweenAnimator : MonoBehaviour
         targetTransform.DOScale(endScale, duration)
             .SetEase(Ease.OutBack);
     }
+
+    public void Reset()
+    {
+        Transform targetTransform = transform;
+        Vector3 currentLocalPosition = targetTransform.localPosition;
+        transform.localPosition = new Vector3(currentLocalPosition.x, startLocalY, currentLocalPosition.z);
+        targetTransform.localScale = Vector3.one * startScale;
+    }
 }

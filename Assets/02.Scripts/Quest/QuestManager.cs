@@ -1,5 +1,10 @@
 using UnityEngine;
 
+/// <summary>
+/// [수정됨] 퀘스트 매니저
+/// 퀘스트의 '순서(Index)'를 강제하지 않고, '현재 활성화된 단일 퀘스트'만
+/// 추적하여 비순차적 실행을 지원합니다.
+/// </summary>
 public class QuestManager : MonoBehaviour
 {
     // 1. Singleton 패턴 적용
@@ -7,9 +12,10 @@ public class QuestManager : MonoBehaviour
 
     [Header("Quest Flow")]
     
-    public int currentQuestIndex = 0; // 현재 역할 없음
+    // 2. [제거됨] currentQuestIndex: 퀘스트 순서를 강제하므로 제거합니다.
+    // public int currentQuestIndex = 0; 
 
-    // 2. 현재 활성화된 퀘스트를 추적하기 위한 참조
+    // 3. 현재 활성화된 '단일' 퀘스트를 추적합니다.
     [SerializeField] private Quest currentActiveQuest = null;
 
     private void Awake()
@@ -23,27 +29,19 @@ public class QuestManager : MonoBehaviour
         {
             Instance = this;
         }
-
-        // 3. 자식에서 퀘스트를 찾는 로직 모두 제거
-        //    매니저는 이제 퀘스트가 스스로 등록하기를 기다림.
     }
 
-    private void Start()
-    {
-        currentQuestIndex = 0;
-    }
+    // 4. [제거됨] Start() 함수: currentQuestIndex를 사용했으므로 필요 없습니다.
 
     #region 이벤트 구독/해제
     private void OnEnable()
     {
-        // 5. onStartQuest 구독 제거
-        // EventManager.onStartQuest += StartQuest; 
+        // 5. StartQuest 이벤트는 Quest의 OnEnable에서 직접 처리하므로 제거
         EventManager.onAdvanceQuest += AdvanceQuest;
         EventManager.onFinishQuest += FinishQuest;
     }
     private void OnDisable()
     {
-        // EventManager.onStartQuest -= StartQuest;
         EventManager.onAdvanceQuest -= AdvanceQuest;
         EventManager.onFinishQuest -= FinishQuest;
     }
@@ -52,26 +50,53 @@ public class QuestManager : MonoBehaviour
     #region 퀘스트 등록 및 흐름 제어
 
     /// <summary>
-    /// 6. (핵심) Quest 프리팹이 생성될 때 이 함수를 호출하여 자신을 등록합니다.
+    /// 6. (핵심) Quest가 OnEnable될 때 이 함수를 호출하여 자신을 '활성 퀘스트'로 등록합니다.
+    /// 퀘스트 순서(index)에 상관없이 실행됩니다.
     /// </summary>
     public void RegisterAndAttemptStart(Quest quest)
     {
-            
-            currentActiveQuest = quest;
-            
-            // Quest가 활성화되어 있지 않다면 활성화
-            if (!currentActiveQuest.gameObject.activeInHierarchy)
-            {
-                currentActiveQuest.gameObject.SetActive(true);
-            }
+        // 이미 이 퀘스트가 활성 퀘스트라면 아무것도 하지 않음 (중복 호출 방지)
+        if (quest == currentActiveQuest)
+        {
+            return;
+        }
 
-            // Quest 내부의 시작 로직 호출
-            currentActiveQuest.StartQuestInternal();
+        // 7. [신규] '다른' 퀘스트가 이미 활성화되어 있다면 (예: 1번 -> 2번으로 전환 시)
+        // GroupA_Tracker가 이전 퀘스트의 OnDisable을 호출했겠지만,
+        // 안전을 위해 여기서 한 번 더 기존 퀘스트를 강제 비활성화(정리)합니다.
+        if (currentActiveQuest != null)
+        {
+            Debug.LogWarning($"[QuestManager] '{currentActiveQuest.displayName}' 퀘스트가 '{quest.displayName}'에 의해 중단됩니다.");
+            currentActiveQuest.gameObject.SetActive(false); 
+            // (이전 Quest의 OnDisable이 호출되어 UnregisterQuest가 실행됨)
+        }
         
-    }
+        // 8. [수정됨] 퀘스트 순서와 상관없이, 새로 등록된 퀘스트를 '현재 활성 퀘스트'로 설정합니다.
+        currentActiveQuest = quest;
+        
+        // Quest가 (GroupA_Tracker에 의해) 이미 활성화되어 있지만, 다시 한번 보장
+        if (!currentActiveQuest.gameObject.activeInHierarchy)
+        {
+            currentActiveQuest.gameObject.SetActive(true);
+        }
 
-    // 7. StartQuest(int index) 이벤트 핸들러 제거 (또는 다른 용도로 수정)
-    //    이벤트 자체가 제거되었다면 이 함수도 필요 없음.
+        // Quest 내부의 시작 로직 호출
+        Debug.Log($"[QuestManager] 퀘스트 '{quest.displayName}' (Index: {quest.questIndex}) 시작.");
+        currentActiveQuest.StartQuestInternal();
+    }
+    
+    /// <summary>
+    /// 9. (신규) Quest가 OnDisable될 때 호출되어, 자신이 활성 퀘스트였는지 확인하고 정리합니다.
+    /// </summary>
+    public void UnregisterQuest(Quest quest)
+    {
+        // 비활성화된 퀘스트가 현재 활성 퀘스트인지 확인
+        if (quest == currentActiveQuest)
+        {
+            Debug.Log($"[QuestManager] 활성 퀘스트 '{quest.displayName}' 등록 해제.");
+            currentActiveQuest = null;
+        }
+    }
 
     // 퀘스트가 다음 단계로 진행
     private void AdvanceQuest(Quest quest)
@@ -91,10 +116,6 @@ public class QuestManager : MonoBehaviour
             Debug.Log($"[QuestManager] 퀘스트 '{quest.displayName}' (Index: {quest.questIndex}) 완료.");
             quest.gameObject.SetActive(false);
             currentActiveQuest = null;
-
-            // 다음 퀘스트 인덱스로 이동
-            currentQuestIndex++;
-            Debug.Log($"[QuestManager] 다음 퀘스트 (Index: {currentQuestIndex})를 기다립니다.");
         }
     }
     #endregion

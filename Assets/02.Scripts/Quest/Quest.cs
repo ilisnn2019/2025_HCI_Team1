@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.Events;
 
 public class Quest : MonoBehaviour
 {
@@ -18,6 +19,8 @@ public class Quest : MonoBehaviour
     
     [Header("Etc")]
     public int currentQuestStepIndex; // 현재 진행 중인 퀘스트 스텝의 인덱스
+
+    public UnityEvent OnHardReset;
     
     private void Awake()
     {
@@ -51,6 +54,16 @@ public class Quest : MonoBehaviour
         }
     }
 
+    private void OnDisable()
+    {
+        // 매니저가 (씬 전환 등으로) 아직 존재한다면,
+        // 자신을 '활성 퀘스트'에서 등록 해제합니다.
+        if (QuestManager.Instance != null)
+        {
+            QuestManager.Instance.UnregisterQuest(this);
+        }
+    }
+
     /// <summary>
     /// 6. (신규) QuestManager가 호출하는 실제 퀘스트 시작 로직
     /// </summary>
@@ -69,6 +82,9 @@ public class Quest : MonoBehaviour
             questSteps = steps.ToArray();
         }
 
+        // 필요한 초기화로직 실행
+        OnHardReset?.Invoke();
+
         // 모든 스텝 초기화 및 비활성화
         for (int i = 0; i < questSteps.Length; i++)
         {
@@ -83,7 +99,7 @@ public class Quest : MonoBehaviour
             Debug.Log($"[Quest] '{displayName}'의 첫 번째 스텝 시작 (Index: {currentQuestStepIndex})");
             questSteps[currentQuestStepIndex].SetActive(true);
             // 스텝 시작 이벤트 호출
-            questSteps[currentQuestStepIndex].GetComponent<QuestStep>().OnStepStart.Invoke();
+
             ChangeGameObjectsActive(true);
         }
         else
@@ -111,8 +127,6 @@ public class Quest : MonoBehaviour
             Debug.Log($"[Quest] '{displayName}'의 다음 스텝 시작 (Index: {currentQuestStepIndex})");
             questSteps[currentQuestStepIndex].SetActive(true);
 
-            // 다음 스텝 시작 이벤트 호출
-            questSteps[currentQuestStepIndex].GetComponent<QuestStep>().OnStepStart.Invoke();
             ChangeGameObjectsActive(true);
         }
         else

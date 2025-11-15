@@ -521,6 +521,9 @@ MonoBehaviour:
   questIndex: 0
   questSteps: []
   currentQuestStepIndex: 0
+  OnHardReset:
+    m_PersistentCalls:
+      m_Calls: []
 --- !u!1 &2292841795928037910
 GameObject:
   m_ObjectHideFlags: 0

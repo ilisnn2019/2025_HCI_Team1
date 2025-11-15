@@ -32,7 +32,7 @@ public abstract class QuestStep : MonoBehaviour
         {
             audioSource.PlayOneShot(stepAudioClip);
         }
-            
+        OnStepStart?.Invoke();
     }
 
     // 단계 완료
