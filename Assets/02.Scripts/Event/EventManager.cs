@@ -20,4 +20,28 @@ public static class EventManager
     {
         onFinishQuest?.Invoke(quest);
     }
+
+    public static event Action onMoreThanTwoCardDetected;
+    public static void MoreThanTwoCardDetected()
+    {
+        onMoreThanTwoCardDetected?.Invoke();
+    }
+
+    public static event Action onSingleCardTracked;
+    public static void SingleCardTracked()
+    {
+        onSingleCardTracked?.Invoke();
+    }
+
+    public static event Action onMultipleCardsTracked;
+    public static void MultipleCardsTracked()
+    {
+        onMultipleCardsTracked?.Invoke();
+    }
+
+    public static event Action onNoCardsTracked;
+    public static void NoCardsTracked()
+    {
+        onNoCardsTracked?.Invoke();
+    }
 }
