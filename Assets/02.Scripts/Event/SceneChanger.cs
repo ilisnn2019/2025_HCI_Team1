@@ -1,7 +1,7 @@
 using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.SceneManagement;
+using UnityEngine.XR.Management;
 
 public class SceneChanger : MonoBehaviour
 {
@@ -39,19 +39,30 @@ public class SceneChanger : MonoBehaviour
     IEnumerator FadeLoadScene(string sceneName) // (오타 수정: FadeLoacdScene -> FadeLoadScene)
     {
         float elapsedTime = 0f;
+        canvasGroup.blocksRaycasts = true;
 
-        // 페이드 아웃 (화면이 점점 어두워짐/불투명해짐)
+        // 페이드 아웃
         while (elapsedTime < fadeDuration)
         {
             elapsedTime += Time.deltaTime;
             canvasGroup.alpha = Mathf.Clamp01(elapsedTime / fadeDuration);
             yield return null;
         }
-
-        // 보간 오차 방지를 위해 루프 후 알파값 1로 확정
         canvasGroup.alpha = 1f;
 
-        // 씬 로드
+        // [핵심 수정] 씬 전환 전 XR 시스템을 강제로 종료하여 
+        // 이전 씬의 카메라를 참조하는 에러를 방지합니다.
+        if (XRGeneralSettings.Instance != null && XRGeneralSettings.Instance.Manager != null)
+        {
+            if (XRGeneralSettings.Instance.Manager.isInitializationComplete)
+            {
+                // 로더를 정지하고 해제합니다.
+                XRGeneralSettings.Instance.Manager.StopSubsystems();
+                XRGeneralSettings.Instance.Manager.DeinitializeLoader();
+            }
+        }
+
+        // 씬 로드 (다음 씬에서 'Initialize XR on Startup' 설정에 의해 자동으로 다시 켜집니다)
         SceneManager.LoadScene(sceneName);
     }
 
@@ -62,6 +73,7 @@ public class SceneChanger : MonoBehaviour
 
     IEnumerator FadeIn()
     {
+        canvasGroup.blocksRaycasts = true;
         float elapsedTime = 0f;
 
         // 페이드 인 (화면이 점점 밝아짐/투명해짐)
@@ -74,6 +86,7 @@ public class SceneChanger : MonoBehaviour
         
         // 보간 오차 방지를 위해 0으로 확정
         canvasGroup.alpha = 0f;
+        canvasGroup.blocksRaycasts = false;
     }
 
     public void Quit()
