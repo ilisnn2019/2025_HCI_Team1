@@ -370,6 +370,8 @@ MonoBehaviour:
     prefab: {fileID: 3957601962949758869, guid: 85072a69eca04b84eb404c71454a2c64, type: 3}
   - imageName: Octopus
     prefab: {fileID: 3957601962949758869, guid: de7e896a4b83562449bf316117e87ba8, type: 3}
+  - imageName: Dolphine
+    prefab: {fileID: 3957601962949758869, guid: b0cd0349e5e3c974187c69b10590275a, type: 3}
 --- !u!1 &1823979395498648990
 GameObject:
   m_ObjectHideFlags: 0
