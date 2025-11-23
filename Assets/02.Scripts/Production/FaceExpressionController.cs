@@ -94,7 +94,7 @@ public class FaceExpressionController : MonoBehaviour
     }
 
     // For Timeline or UnityEvent (single string argument)
-    // Example: "Preset:Cry" or "Eye:Blink"
+    // Example: "Eye:Wink"
     public void SetExpressionFromString(string formatted)
     {
         if (string.IsNullOrEmpty(formatted)) return;

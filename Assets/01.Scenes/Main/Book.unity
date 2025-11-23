@@ -379,7 +379,7 @@ MonoBehaviour:
     m_Bits: 1
   m_VolumeTrigger: {fileID: 0}
   m_VolumeFrameworkUpdateModeOption: 2
-  m_RenderPostProcessing: 0
+  m_RenderPostProcessing: 1
   m_Antialiasing: 0
   m_AntialiasingQuality: 2
   m_StopNaN: 0
@@ -622,7 +622,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 40a81559328a45643bbf65054300c798, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  currentQuestIndex: 0
   currentActiveQuest: {fileID: 0}
 --- !u!4 &1638851772
 Transform:
@@ -744,7 +743,7 @@ GameObject:
   - component: {fileID: 2103693796}
   - component: {fileID: 2103693800}
   - component: {fileID: 2103693801}
-  - component: {fileID: 2103693802}
+  - component: {fileID: 2103693803}
   m_Layer: 0
   m_Name: XR Origin
   m_TagString: Untagged
@@ -766,19 +765,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   <trackablesChanged>k__BackingField:
     m_PersistentCalls:
-      m_Calls:
-      - m_Target: {fileID: 2103693802}
-        m_TargetAssemblyTypeName: ExclusiveImageTracker, Assembly-CSharp
-        m_MethodName: OnTrackablesChanged
-        m_Mode: 0
-        m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 0
-          m_FloatArgument: 0
-          m_StringArgument: 
-          m_BoolArgument: 0
-        m_CallState: 2
+      m_Calls: []
   m_SerializedLibrary: {fileID: 11400000, guid: 0b32ed7e54115714887ecfc885bd272d, type: 2}
   m_MaxNumberOfMovingImages: 1
   m_TrackedImagePrefab: {fileID: 0}
@@ -807,14 +794,14 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 2103693795}
   serializedVersion: 2
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalRotation: {x: 0.2588191, y: 0, z: 0, w: 0.9659258}
+  m_LocalPosition: {x: 0, y: 0.49, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 1865757151}
   m_Father: {fileID: 0}
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_LocalEulerAnglesHint: {x: 30, y: 0, z: 0}
 --- !u!114 &2103693800
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -848,7 +835,7 @@ MonoBehaviour:
       m_Calls: []
   m_PlanePrefab: {fileID: 0}
   m_DetectionMode: -1
---- !u!114 &2103693802
+--- !u!114 &2103693803
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -857,20 +844,15 @@ MonoBehaviour:
   m_GameObject: {fileID: 2103693795}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 888da16e58ad15f448b2c2a1410106c0, type: 3}
+  m_Script: {fileID: 11500000, guid: 115bae7223b52ee44b16b51350f18c5e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  trackedImageManager: {fileID: 2103693796}
-  groupAPrefabs:
-  - imageName: Page7
-    prefab: {fileID: 3851526670604369803, guid: 41b7194c6d0c1c742bfc28349e120029, type: 3}
-  - imageName: Page10
-    prefab: {fileID: 3851526670604369803, guid: 3c36f4bec806c7f419bf0d50dbe60832, type: 3}
-  - imageName: Page14
-    prefab: {fileID: 3851526670604369803, guid: babbeff65e4c30142baf7af5788ac777, type: 3}
-  - imageName: Page15
-    prefab: {fileID: 3851526670604369803, guid: 0abd0221f0d16e84fb05f61c9c6c2254, type: 3}
-  groupBPrefabs: []
+  trackedImageManager: {fileID: 0}
+  pagePrefabs:
+  - imageName: Page1
+    prefab: {fileID: 1405784522747061223, guid: 4850ac6df8dab3f4882085e4291a8785, type: 3}
+  - imageName: Page2
+    prefab: {fileID: 1405784522747061223, guid: 82c4dc73d440e9c40997ed66ec8bad1a, type: 3}
 --- !u!1660057539 &9223372036854775807
 SceneRoots:
   m_ObjectHideFlags: 0

@@ -10,6 +10,7 @@ public class WaitTimeStep : QuestStep
 
     public override void OnEnable()
     {
+        base.OnEnable();
         if(stepAudioClip != null)
         {
             time = stepAudioClip.length + alphaTime;
