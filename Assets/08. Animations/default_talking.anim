@@ -60,7 +60,7 @@ AnimationClip:
     messageOptions: 0
   - time: 0.16666667
     functionName: SetExpressionFromString
-    data: 'Mouth:Neutral '
+    data: Mouth:Joy
     objectReferenceParameter: {fileID: 0}
     floatParameter: 0
     intParameter: 0
