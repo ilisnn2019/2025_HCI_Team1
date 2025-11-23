@@ -1004,6 +1004,9 @@ MonoBehaviour:
     sigTime: 30
   - sigName: Exception1
     sigTime: 26
+  movements: []
+  obj: {fileID: 0}
+  output: {x: 0, y: 0, z: 0}
 --- !u!114 &5302531876396216879
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1308,15 +1311,15 @@ PrefabInstance:
     - target: {fileID: 1302915658195398492, guid: 641c74d576f7620418b4693a46754218, type: 3}
       propertyPath: 'm_Materials.Array.data[0]'
       value: 
-      objectReference: {fileID: 2100000, guid: 030ab2271e9f3a54c9f4ca9368e6f23d, type: 2}
+      objectReference: {fileID: 2100000, guid: d3032a04ade611f46b0002733f38338d, type: 2}
     - target: {fileID: 1302915658195398492, guid: 641c74d576f7620418b4693a46754218, type: 3}
       propertyPath: 'm_Materials.Array.data[1]'
       value: 
-      objectReference: {fileID: 2100000, guid: 565d70ee5d10eba459594900d0abfcb0, type: 2}
+      objectReference: {fileID: 2100000, guid: 030ab2271e9f3a54c9f4ca9368e6f23d, type: 2}
     - target: {fileID: 1302915658195398492, guid: 641c74d576f7620418b4693a46754218, type: 3}
       propertyPath: 'm_Materials.Array.data[2]'
       value: 
-      objectReference: {fileID: 2100000, guid: d3032a04ade611f46b0002733f38338d, type: 2}
+      objectReference: {fileID: 2100000, guid: 565d70ee5d10eba459594900d0abfcb0, type: 2}
     - target: {fileID: 1630794972795428178, guid: 641c74d576f7620418b4693a46754218, type: 3}
       propertyPath: m_CastShadows
       value: 0

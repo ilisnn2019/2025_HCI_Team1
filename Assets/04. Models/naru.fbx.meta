@@ -3,7 +3,27 @@ guid: 641c74d576f7620418b4693a46754218
 ModelImporter:
   serializedVersion: 22200
   internalIDToNameTable: []
-  externalObjects: {}
+  externalObjects:
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: Siru_Bag
+    second: {fileID: 2100000, guid: 059750b1de9dcf0499ca3185bdc5746b, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: naru_body
+    second: {fileID: 2100000, guid: c553646ab1caa374596852b15830da8d, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: naru_eye
+    second: {fileID: 2100000, guid: d3032a04ade611f46b0002733f38338d, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: naru_face
+    second: {fileID: 2100000, guid: 1b0f535e21ae85e49aa537722b139928, type: 2}
   materials:
     materialImportMode: 2
     materialName: 0
