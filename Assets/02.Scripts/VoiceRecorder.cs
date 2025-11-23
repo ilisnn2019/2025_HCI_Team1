@@ -13,6 +13,9 @@ public class VoiceRecorder : MonoBehaviour
     public Sprite spt_record;
     public Sprite spt_stop;
     public Sprite spt_re_record;
+    public Image img_record_rec;
+    public Sprite spt_record_rec_1;
+    public Sprite spt_record_rec_2;
 
     private enum RecordState { Idle, Recording, Finished }
     private RecordState currentState = RecordState.Idle;
@@ -80,6 +83,7 @@ public class VoiceRecorder : MonoBehaviour
         isMicOpen = true;
 
         Debug.Log($"Microphone opened for monitoring: {micDevice}");
+
         micMonitorCoroutine = StartCoroutine(MonitorMicLevel());
     }
 
@@ -97,6 +101,8 @@ public class VoiceRecorder : MonoBehaviour
         isMicOpen = false;
         micDetected = false;
 
+
+
         Debug.Log("Microphone monitoring stopped.");
     }
 
@@ -107,10 +113,10 @@ public class VoiceRecorder : MonoBehaviour
     private const float DETECT_DURATION = 2f;    // 2초 연속 감지 필요
     private const float EXCEPTION_COOLDOWN = 2f; // Exception UI 유지 시간
 
-
     private IEnumerator MonitorMicLevel()
     {
         float[] samples = new float[128];
+        int stack = 0;
 
         while (isMicOpen)
         {
@@ -161,6 +167,12 @@ public class VoiceRecorder : MonoBehaviour
             }
 
             yield return new WaitForSeconds(0.1f);
+
+            if(++stack > 10)
+            {
+                if ((stack / 10) % 2 == 1) img_record_rec.sprite = spt_record_rec_2;
+                else img_record_rec.sprite = spt_record_rec_1;              
+            }
         }
     }
 
@@ -199,6 +211,7 @@ public class VoiceRecorder : MonoBehaviour
         recordStartPos = Microphone.GetPosition(micDevice);
         currentState = RecordState.Recording;
         img_record.sprite = spt_stop;
+        img_record_rec.enabled = true;
 
         Debug.Log($"Recording started at {recordStartPos}");
         StartCoroutine(CheckSilenceAndStop());
@@ -248,6 +261,7 @@ public class VoiceRecorder : MonoBehaviour
             return;
 
         isRecording = false;
+        img_record_rec.enabled = false;
         recordEndPos = Microphone.GetPosition(micDevice);
 
         // 루프 버퍼 회전 보정

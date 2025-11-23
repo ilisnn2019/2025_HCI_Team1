@@ -28,10 +28,11 @@ RectTransform:
   m_GameObject: {fileID: 131649980178711498}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 0.5, y: 0.5, z: 0.5}
+  m_LocalScale: {x: 0.62, y: 0.62, z: 0.62}
   m_ConstrainProportionsScale: 1
   m_Children:
   - {fileID: 3122852903239552163}
+  - {fileID: 7627380717343730312}
   - {fileID: 8223354114110368394}
   - {fileID: 3815941229289247378}
   - {fileID: 4722894358490898167}
@@ -103,6 +104,81 @@ Animator:
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorStateOnDisable: 0
   m_WriteDefaultValuesOnDisable: 0
+--- !u!1 &335153389462604070
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 7627380717343730312}
+  - component: {fileID: 9104475395182626870}
+  - component: {fileID: 4821316457027852474}
+  m_Layer: 5
+  m_Name: S3_recoding_rec_1
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!224 &7627380717343730312
+RectTransform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 335153389462604070}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: -0}
+  m_LocalScale: {x: 0.52, y: 0.52, z: 0.52}
+  m_ConstrainProportionsScale: 1
+  m_Children: []
+  m_Father: {fileID: 8401637993147230804}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_AnchorMin: {x: 0.5, y: 0.5}
+  m_AnchorMax: {x: 0.5, y: 0.5}
+  m_AnchoredPosition: {x: 8, y: 213}
+  m_SizeDelta: {x: 480, y: 156}
+  m_Pivot: {x: 0.5, y: 0.5}
+--- !u!222 &9104475395182626870
+CanvasRenderer:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 335153389462604070}
+  m_CullTransparentMesh: 1
+--- !u!114 &4821316457027852474
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 335153389462604070}
+  m_Enabled: 0
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fe87c0e1cc204ed48ad3b37840f39efc, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_Material: {fileID: 0}
+  m_Color: {r: 1, g: 1, b: 1, a: 1}
+  m_RaycastTarget: 1
+  m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
+  m_Maskable: 1
+  m_OnCullStateChanged:
+    m_PersistentCalls:
+      m_Calls: []
+  m_Sprite: {fileID: 21300000, guid: d252678d241e06e4a89158ab92d30655, type: 3}
+  m_Type: 0
+  m_PreserveAspect: 0
+  m_FillCenter: 1
+  m_FillMethod: 4
+  m_FillAmount: 1
+  m_FillClockwise: 1
+  m_FillOrigin: 0
+  m_UseSpriteMesh: 0
+  m_PixelsPerUnitMultiplier: 1
 --- !u!1 &1034378347235076522
 GameObject:
   m_ObjectHideFlags: 0
@@ -129,7 +205,7 @@ RectTransform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1034378347235076522}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalPosition: {x: 0, y: 0, z: -0}
   m_LocalScale: {x: 0.52, y: 0.52, z: 0.52}
   m_ConstrainProportionsScale: 1
   m_Children: []
@@ -137,7 +213,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: -330, y: 304}
+  m_AnchoredPosition: {x: -330, y: 335}
   m_SizeDelta: {x: 2048, y: 200}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!222 &2822434488252784704
@@ -382,14 +458,14 @@ RectTransform:
   m_GameObject: {fileID: 3451893106484117409}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: -0.000020980835}
-  m_LocalScale: {x: 0.34, y: 0.34000003, z: 0.34000003}
+  m_LocalScale: {x: 0.25, y: 0.25, z: 0.25}
   m_ConstrainProportionsScale: 1
   m_Children: []
   m_Father: {fileID: 8401637993147230804}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 0, y: -51.99997}
+  m_AnchoredPosition: {x: 0, y: -31}
   m_SizeDelta: {x: 1758, y: 1758}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!222 &8218098111536562855
@@ -536,7 +612,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!224 &1840241058977992620
 RectTransform:
   m_ObjectHideFlags: 0
@@ -546,14 +622,14 @@ RectTransform:
   m_GameObject: {fileID: 5200416595692827705}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 0.52, y: 0.52, z: 0.52}
+  m_LocalScale: {x: 0.41, y: 0.41, z: 0.41}
   m_ConstrainProportionsScale: 1
   m_Children: []
   m_Father: {fileID: 8401637993147230804}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 0, y: -397}
+  m_AnchoredPosition: {x: 0, y: -302}
   m_SizeDelta: {x: 2048, y: 269}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!222 &3025704797978918785
@@ -680,7 +756,7 @@ RectTransform:
   m_GameObject: {fileID: 6455763904184088671}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: -0}
-  m_LocalScale: {x: 0.2, y: 0.2, z: 0.2}
+  m_LocalScale: {x: 0.16, y: 0.16, z: 0.16}
   m_ConstrainProportionsScale: 1
   m_Children: []
   m_Father: {fileID: 8401637993147230804}
@@ -1004,6 +1080,9 @@ MonoBehaviour:
     sigTime: 30
   - sigName: Exception1
     sigTime: 26
+  movements: []
+  obj: {fileID: 0}
+  output: {x: 0, y: 0, z: 0}
 --- !u!114 &2634376383428789990
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1667,32 +1746,50 @@ MonoBehaviour:
   - partName: Eye
     material: {fileID: 2100000, guid: 030ab2271e9f3a54c9f4ca9368e6f23d, type: 2}
     startOffset: {x: 0, y: 0}
-    cellSize: {x: 0.45, y: 0.2}
+    cellSize: {x: 0.225, y: 0.19}
     expressions:
     - expressionName: Neutral
-      offsetIndex: {x: 0, y: 0}
+      offsetIndex: {x: 1, y: 0}
     - expressionName: Cry
-      offsetIndex: {x: 0, y: 1}
+      offsetIndex: {x: 1, y: 0}
     - expressionName: Almost_Cry
+      offsetIndex: {x: 0, y: 2}
+    - expressionName: Wink
+      offsetIndex: {x: 0, y: 0}
+    - expressionName: Happy
+      offsetIndex: {x: 2, y: 1}
+    - expressionName: Cry_Joy
       offsetIndex: {x: 1, y: 1}
   - partName: Mouth
     material: {fileID: 2100000, guid: 565d70ee5d10eba459594900d0abfcb0, type: 2}
     startOffset: {x: 0, y: 0}
-    cellSize: {x: 0.45, y: 0.2}
+    cellSize: {x: 0.225, y: 0.19}
     expressions:
     - expressionName: Neutral
       offsetIndex: {x: 0, y: 0}
     - expressionName: Open
       offsetIndex: {x: 1, y: 0}
+    - expressionName: Cry
+      offsetIndex: {x: 0, y: 1}
+    - expressionName: Almost_Cry
+      offsetIndex: {x: 0, y: 2}
+    - expressionName: Joy
+      offsetIndex: {x: 1, y: 1}
+    - expressionName: Happy
+      offsetIndex: {x: 2, y: 1}
   - partName: Cheek
     material: {fileID: 2100000, guid: d3032a04ade611f46b0002733f38338d, type: 2}
     startOffset: {x: 0, y: 0}
-    cellSize: {x: 0.45, y: 0.2}
+    cellSize: {x: 0.225, y: 0.19}
     expressions:
     - expressionName: Pattern_1
       offsetIndex: {x: 0, y: 0}
     - expressionName: Pattern_2
-      offsetIndex: {x: 1, y: 0}
+      offsetIndex: {x: 2, y: 0}
+    - expressionName: Pattern_3
+      offsetIndex: {x: 2, y: 1}
+    - expressionName: Nothin
+      offsetIndex: {x: 1, y: 1}
   facePresets:
   - presetName: Neutral
     parts:
@@ -1710,6 +1807,22 @@ MonoBehaviour:
       expressionName: Open
     - partName: Cheek
       expressionName: Pattern_2
+  - presetName: Happy
+    parts:
+    - partName: Eye
+      expressionName: Happy
+    - partName: Mouth
+      expressionName: Neutral
+    - partName: Cheek
+      expressionName: Pattern_1
+  - presetName: Joy
+    parts:
+    - partName: Eye
+      expressionName: Cry_Joy
+    - partName: Mouth
+      expressionName: Joy
+    - partName: Cheek
+      expressionName: Nothin
 --- !u!111 &1602415100100962445
 Animation:
   m_ObjectHideFlags: 0
@@ -1766,10 +1879,13 @@ MonoBehaviour:
     m_Signals:
     - {fileID: 11400000, guid: b42946f535931794e9b8ca7f0e0bb300, type: 2}
     - {fileID: 11400000, guid: 8df0f3b7afe0f17419e94520acd82d60, type: 2}
+    - {fileID: 11400000, guid: b4c14c56284f3be4283b7a1a64c4d385, type: 2}
+    - {fileID: 11400000, guid: ccb03dd62b814094eb0fa5ea08d827b7, type: 2}
+    - {fileID: 11400000, guid: fa051cc505f1dba4ba155626d645e926, type: 2}
     m_Events:
     - m_PersistentCalls:
         m_Calls:
-        - m_Target: {fileID: 99811111160768648}
+        - m_Target: {fileID: 0}
           m_TargetAssemblyTypeName: FaceExpressionController, Assembly-CSharp
           m_MethodName: SetFullExpression
           m_Mode: 5
@@ -1783,7 +1899,7 @@ MonoBehaviour:
           m_CallState: 2
     - m_PersistentCalls:
         m_Calls:
-        - m_Target: {fileID: 99811111160768648}
+        - m_Target: {fileID: 0}
           m_TargetAssemblyTypeName: FaceExpressionController, Assembly-CSharp
           m_MethodName: SetFullExpression
           m_Mode: 5
@@ -1793,6 +1909,48 @@ MonoBehaviour:
             m_IntArgument: 0
             m_FloatArgument: 0
             m_StringArgument: Neutral
+            m_BoolArgument: 0
+          m_CallState: 2
+    - m_PersistentCalls:
+        m_Calls:
+        - m_Target: {fileID: 0}
+          m_TargetAssemblyTypeName: FaceExpressionController, Assembly-CSharp
+          m_MethodName: SetFullExpression
+          m_Mode: 5
+          m_Arguments:
+            m_ObjectArgument: {fileID: 0}
+            m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+            m_IntArgument: 0
+            m_FloatArgument: 0
+            m_StringArgument: Happy
+            m_BoolArgument: 0
+          m_CallState: 2
+    - m_PersistentCalls:
+        m_Calls:
+        - m_Target: {fileID: 0}
+          m_TargetAssemblyTypeName: FaceExpressionController, Assembly-CSharp
+          m_MethodName: SetFullExpression
+          m_Mode: 5
+          m_Arguments:
+            m_ObjectArgument: {fileID: 0}
+            m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+            m_IntArgument: 0
+            m_FloatArgument: 0
+            m_StringArgument: Joy
+            m_BoolArgument: 0
+          m_CallState: 2
+    - m_PersistentCalls:
+        m_Calls:
+        - m_Target: {fileID: 0}
+          m_TargetAssemblyTypeName: FaceExpressionController, Assembly-CSharp
+          m_MethodName: SetExpressionFromString
+          m_Mode: 5
+          m_Arguments:
+            m_ObjectArgument: {fileID: 0}
+            m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+            m_IntArgument: 0
+            m_FloatArgument: 0
+            m_StringArgument: Mouth:Neutral
             m_BoolArgument: 0
           m_CallState: 2
 --- !u!4 &5208891358559044945 stripped
