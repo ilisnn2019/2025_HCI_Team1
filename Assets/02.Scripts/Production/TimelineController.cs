@@ -6,7 +6,6 @@ using UnityEngine;
 using UnityEngine.Events;
 using UnityEngine.Playables;
 using UnityEngine.Timeline;
-using static UnityEditor.Rendering.CameraUI;
 
 public class TimelineController : MonoBehaviour
 {
@@ -22,10 +21,10 @@ public class TimelineController : MonoBehaviour
     [Serializable]
     public class Movement
     {
-        public Transform targetObject;      // ¿òÁ÷ÀÏ ¿ÀºêÁ§Æ®
-        public Vector3 relativePosition;    // Ä«¸Þ¶ó ±âÁØ »ó´ë À§Ä¡
-        public Vector3 rotation;            // ¸ñÇ¥ È¸Àü (EulerAngles)
-        public float time;                 // ÀÌµ¿ ¼Óµµ (units per second)
+        public Transform targetObject;      // ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Æ®
+        public Vector3 relativePosition;    // Ä«ï¿½Þ¶ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ ï¿½ï¿½Ä¡
+        public Vector3 rotation;            // ï¿½ï¿½Ç¥ È¸ï¿½ï¿½ (EulerAngles)
+        public float time;                 // ï¿½Ìµï¿½ ï¿½Óµï¿½ (units per second)
 
         public Movement(Transform targetObject, Vector3 relativePosition, Vector3 rotation, float time)
         {
@@ -41,7 +40,7 @@ public class TimelineController : MonoBehaviour
 
     private void Awake()
     {
-        // Dictionary Ä³½Ì
+        // Dictionary Ä³ï¿½ï¿½
         signalLookup = new Dictionary<string, float>();
 
         foreach (var s in signals)
@@ -57,14 +56,14 @@ public class TimelineController : MonoBehaviour
         }
     }
 
-    public Movement[] movements; // ¿©·¯ °³ÀÇ ¿òÁ÷ÀÓÀ» ÀúÀå
+    public Movement[] movements; // ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½
 
-    // ¿òÁ÷ÀÓ È£Ãâ ÇÔ¼ö
+    // ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ È£ï¿½ï¿½ ï¿½Ô¼ï¿½
     public void PlayMovement(int currentIndex)
     {
         if (currentIndex >= movements.Length)
         {
-            Debug.Log("¸ðµç ¿òÁ÷ÀÓ ¿Ï·á");
+            Debug.Log("ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½Ï·ï¿½");
             return;
         }
 
@@ -73,31 +72,31 @@ public class TimelineController : MonoBehaviour
         currentIndex++;
     }
 
-    // Å¸°Ù À§Ä¡·Î ÀÏÁ¤ ¼Óµµ·Î ÀÌµ¿ÇÏ°í È¸ÀüÇÏ±â
+    // Å¸ï¿½ï¿½ ï¿½ï¿½Ä¡ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½Óµï¿½ï¿½ï¿½ ï¿½Ìµï¿½ï¿½Ï°ï¿½ È¸ï¿½ï¿½ï¿½Ï±ï¿½
     private void ExecuteMovement(Movement m)
     {
         if (m.targetObject == null)
         {
-            Debug.LogWarning("Å¸°Ù ¿ÀºêÁ§Æ®°¡ ¾ø½À´Ï´Ù.");
+            Debug.LogWarning("Å¸ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Æ®ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½Ï´ï¿½.");
             return;
         }
 
-        // Ä«¸Þ¶ó ±âÁØ »ó´ëÁÂÇ¥ ¡æ ¿ùµåÁÂÇ¥ º¯È¯
+        // Ä«ï¿½Þ¶ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½Ç¥ ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ç¥ ï¿½ï¿½È¯
         Vector3 worldTargetPos = CalculateWorldPosition(m.relativePosition);
 
-        // È¸Àü º¯È¯
+        // È¸ï¿½ï¿½ ï¿½ï¿½È¯
         Quaternion targetRot = Quaternion.Euler(m.rotation);
 
-        // ÀÌµ¿ °Å¸®
+        // ï¿½Ìµï¿½ ï¿½Å¸ï¿½
         float distance = Vector3.Distance(m.targetObject.position, worldTargetPos);
 
-        // ¼Óµµ ±â¹Ý ÀÌµ¿ ½Ã°£
+        // ï¿½Óµï¿½ ï¿½ï¿½ï¿½ ï¿½Ìµï¿½ ï¿½Ã°ï¿½
         float moveDuration = m.time;
 
-        // DoTween ÀÌµ¿
+        // DoTween ï¿½Ìµï¿½
         m.targetObject.DOMove(worldTargetPos, moveDuration).SetEase(Ease.Linear);
 
-        // DoTween È¸Àü
+        // DoTween È¸ï¿½ï¿½
         m.targetObject.DORotateQuaternion(targetRot, moveDuration).SetEase(Ease.Linear);
     }
 
@@ -107,9 +106,9 @@ public class TimelineController : MonoBehaviour
         return cam.transform.position + cam.transform.rotation * relativePos;
     }
 
-    // ¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡
-    // À¯Æ¿¼º ÇÔ¼ö : Ä«¸Þ¶ó ±âÁØ »ó´ë ÁÂÇ¥ ¡æ ¿ùµå ÁÂÇ¥ º¯È¯
-    // ¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡
+    // ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½
+    // ï¿½ï¿½Æ¿ï¿½ï¿½ ï¿½Ô¼ï¿½ : Ä«ï¿½Þ¶ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ ï¿½ï¿½Ç¥ ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½Ç¥ ï¿½ï¿½È¯
+    // ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½
     public Transform obj;
     public Vector3 output;
     [ContextMenu("Get")]
@@ -117,7 +116,7 @@ public class TimelineController : MonoBehaviour
     {
         Camera cam = Camera.main;
 
-        // ¿ùµå °ø°£ÀÇ ¿ÀºêÁ§Æ® À§Ä¡ ¡æ Ä«¸Þ¶ó ·ÎÄÃ °ø°£ ÁÂÇ¥·Î º¯È¯
+        // ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Æ® ï¿½ï¿½Ä¡ ï¿½ï¿½ Ä«ï¿½Þ¶ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½Ç¥ï¿½ï¿½ ï¿½ï¿½È¯
         output =  cam.transform.InverseTransformPoint(obj.position);
     }
 
