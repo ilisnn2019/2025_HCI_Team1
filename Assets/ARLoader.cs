@@ -8,10 +8,17 @@ public class ARLoaderController : MonoBehaviour
     [Header("초기화 후 켜질 AR 오브젝트들")]
     [Tooltip("AR Session과 XR Origin을 여기에 할당하세요")]
     [SerializeField] private GameObject[] arObjectsToActivate;
+    [SerializeField] bool activateOnStart = true;
 
     void Awake()
     {
         // 시작하자마자 코루틴 실행
+        if(activateOnStart)
+            StartCoroutine(InitializeXR());
+    }
+
+    public void StartXR()
+    {
         StartCoroutine(InitializeXR());
     }
 
