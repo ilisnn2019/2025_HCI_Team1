@@ -1262,6 +1262,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   director: {fileID: 7398523235006439949}
   loopStartTime: 0
+  loopEndTime: 0
   looping: 0
   stopLoop: 0
 --- !u!1 &4224679364123753488

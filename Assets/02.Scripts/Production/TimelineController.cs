@@ -106,9 +106,7 @@ public class TimelineController : MonoBehaviour
         return cam.transform.position + cam.transform.rotation * relativePos;
     }
 
-    // ������������������������������������������������������������������������������������������������
-    // ��ƿ�� �Լ� : ī�޶� ���� ��� ��ǥ �� ���� ��ǥ ��ȯ
-    // ������������������������������������������������������������������������������������������������
+
     public Transform obj;
     public Vector3 output;
     [ContextMenu("Get")]
