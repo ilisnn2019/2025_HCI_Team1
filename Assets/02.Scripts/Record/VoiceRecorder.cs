@@ -242,7 +242,7 @@ public class VoiceRecorder : MonoBehaviour
     private IEnumerator CheckSilenceAndStop()
     {
         float[] samples = new float[SAMPLE_SIZE];
-
+        int stack = 0;
         while (isRecording)
         {
             int position = Microphone.GetPosition(micDevice);
@@ -274,6 +274,11 @@ public class VoiceRecorder : MonoBehaviour
             }
 
             yield return new WaitForSeconds(0.1f);
+            if (++stack > 10)
+            {
+                if ((stack / 10) % 2 == 1) img_record_rec.sprite = spt_record_rec_2;
+                else img_record_rec.sprite = spt_record_rec_1;
+            }
         }
     }
 
