@@ -12,6 +12,7 @@ GameObject:
   - component: {fileID: 3445539142590113636}
   - component: {fileID: 4650627731359723833}
   - component: {fileID: 3543485916404162156}
+  - component: {fileID: 6684853199501998283}
   m_Layer: 5
   m_Name: Record (1)
   m_TagString: Untagged
@@ -109,6 +110,23 @@ MonoBehaviour:
     m_PersistentCalls:
       m_Calls: []
   parentScrollRect: {fileID: 0}
+--- !u!114 &6684853199501998283
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 298174390517117917}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b6e9e203fac8a1e40a54127d85b6d745, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  dateText: {fileID: 2922247296227261918}
+  titleText: {fileID: 627381259937909843}
+  contentText: {fileID: 2720531450668480935}
+  playButton: {fileID: 4284815264053849371}
+  audioSource: {fileID: 7487383174935238827, guid: 397b28d972167d241a8f860e8f74678a, type: 3}
 --- !u!1 &1028968723696010028
 GameObject:
   m_ObjectHideFlags: 0
@@ -387,7 +405,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 1}
   m_AnchorMax: {x: 0, y: 1}
-  m_AnchoredPosition: {x: 250, y: -294.51}
+  m_AnchoredPosition: {x: 250, y: -254.57}
   m_SizeDelta: {x: 525.3, y: 0}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!222 &7627132286146549161
@@ -1153,8 +1171,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: "\" \uB098\uB3C4 \uC2AC\uD37C\uC694. \uCE5C\uAD6C\uB791 \uAC19\uC774 \uB180\uACE0
-    \uC2F6\uC5B4\uC694. \"\n"
+  m_text: 
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: d288ecfe1d6300a49a36022d2740411c, type: 2}
   m_sharedMaterial: {fileID: 6680828445230219141, guid: d288ecfe1d6300a49a36022d2740411c, type: 2}

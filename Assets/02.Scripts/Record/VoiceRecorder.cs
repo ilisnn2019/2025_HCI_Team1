@@ -308,6 +308,7 @@ public class VoiceRecorder : MonoBehaviour
         {
             string filename = GenerateFileName();
             filepath = Path.Combine(filedir, filename);
+            SaveMetadata(filepath, "변비 탐정 실룩\n사라진 고등어 인형", "너는 꿈이 있니?\n나중에 어른이 되면 뭐 하고 싶어?"); //일단 정적으로 할당
         }
         else
         {
@@ -421,5 +422,27 @@ public class VoiceRecorder : MonoBehaviour
 
         stream.Write(System.Text.Encoding.UTF8.GetBytes("data"), 0, 4);
         stream.Write(BitConverter.GetBytes(samples * channels * 2), 0, 4);
+    }
+
+    [System.Serializable]
+    class VoiceMetadata
+    {
+        public string title;
+        public string content;
+    }
+
+    private void SaveMetadata(string filepath, string title, string content)
+    {
+
+        VoiceMetadata data = new VoiceMetadata()
+        {
+            title = title,
+            content = content
+        };
+
+        string json = JsonUtility.ToJson(data, true);
+
+        string jsonPath = Path.ChangeExtension(filepath, ".json");
+        File.WriteAllText(jsonPath, json);
     }
 }

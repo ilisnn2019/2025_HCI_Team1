@@ -401,7 +401,7 @@ PlayableDirector:
   m_Enabled: 1
   serializedVersion: 3
   m_PlayableAsset: {fileID: 11400000, guid: 8add26e0982e5224ea1e469eb2ad9e80, type: 2}
-  m_InitialState: 0
+  m_InitialState: 1
   m_WrapMode: 0
   m_DirectorUpdateMode: 1
   m_InitialTime: 0
@@ -530,6 +530,8 @@ PlayableDirector:
     value: {fileID: 5477140023788365139}
   - key: {fileID: 1844666064028594128, guid: 8add26e0982e5224ea1e469eb2ad9e80, type: 2}
     value: {fileID: 1709040336813488727}
+  - key: {fileID: -6833600951461064112, guid: 8add26e0982e5224ea1e469eb2ad9e80, type: 2}
+    value: {fileID: 1311474990202320345}
   m_ExposedReferences:
     m_References:
     - 277c7660bdde97748b56634e21f86994: {fileID: 0}
@@ -556,7 +558,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   director: {fileID: 4662993321123708503}
-  signals: []
+  signals:
+  - sigName: 
+    sigTime: 0
   movements: []
   obj: {fileID: 0}
   output: {x: 0, y: 0, z: 0}
@@ -692,7 +696,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &6105418775025331115
 Transform:
   m_ObjectHideFlags: 0

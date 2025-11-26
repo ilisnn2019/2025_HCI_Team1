@@ -35,7 +35,7 @@ public class TimelineSignalLooper : MonoBehaviour
             looping = false;
             Debug.Log("[SignalLooper] Loop ended, timeline continues.");
         }
-    }
+    }   
 
     // 외부 이벤트로 호출
     [ContextMenu("Stop")]

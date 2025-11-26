@@ -2083,7 +2083,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 115bae7223b52ee44b16b51350f18c5e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  trackedImageManager: {fileID: 0}
+  trackedImageManager: {fileID: 2103693796}
   pagePrefabs:
   - imageName: Page1
     prefab: {fileID: 1405784522747061223, guid: 4850ac6df8dab3f4882085e4291a8785, type: 3}
