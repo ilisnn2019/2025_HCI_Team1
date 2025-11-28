@@ -6,6 +6,7 @@ public class TimelineSignalLooper : MonoBehaviour
     public PlayableDirector director;
 
     [SerializeField]private double loopStartTime = 0;
+    [SerializeField]private double loopEndTime = 0;
     [SerializeField]private bool looping = false;
     [SerializeField]private bool stopLoop = false;
 
@@ -19,6 +20,7 @@ public class TimelineSignalLooper : MonoBehaviour
 
     public void OnLoopEnd()
     {
+        loopEndTime = director.time;
         if (looping && !stopLoop)
         {
             // 루프 계속 — 다시 시작 위치로 이동
@@ -33,12 +35,14 @@ public class TimelineSignalLooper : MonoBehaviour
             looping = false;
             Debug.Log("[SignalLooper] Loop ended, timeline continues.");
         }
-    }
+    }   
 
     // 외부 이벤트로 호출
+    [ContextMenu("Stop")]
     public void StopLoop()
     {
         stopLoop = true;
+        director.time = loopEndTime;
         Debug.Log("[SignalLooper] StopLoop called — will exit after current cycle.");
     }
 }
