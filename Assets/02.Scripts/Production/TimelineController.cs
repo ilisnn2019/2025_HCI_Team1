@@ -6,7 +6,6 @@ using UnityEngine;
 using UnityEngine.Events;
 using UnityEngine.Playables;
 using UnityEngine.Timeline;
-
 public class TimelineController : MonoBehaviour
 {
     public PlayableDirector director;
@@ -71,7 +70,7 @@ public class TimelineController : MonoBehaviour
         ExecuteMovement(m);
         currentIndex++;
     }
-
+    public float scaler = 0.014f;
     // Ÿ�� ��ġ�� ���� �ӵ��� �̵��ϰ� ȸ���ϱ�
     private void ExecuteMovement(Movement m)
     {
@@ -82,7 +81,7 @@ public class TimelineController : MonoBehaviour
         }
 
         // ī�޶� ���� �����ǥ �� ������ǥ ��ȯ
-        Vector3 worldTargetPos = CalculateWorldPosition(m.relativePosition);
+        Vector3 worldTargetPos = CalculateWorldPosition(m.relativePosition * scaler);
 
         // ȸ�� ��ȯ
         Quaternion targetRot = Quaternion.Euler(m.rotation);
@@ -102,8 +101,14 @@ public class TimelineController : MonoBehaviour
 
     Vector3 CalculateWorldPosition(Vector3 relativePos)
     {
-        Camera cam = Camera.main;
+        Transform cam = GetActiveCamera();
         return cam.transform.position + cam.transform.rotation * relativePos;
+    }
+
+    Transform GetActiveCamera()
+    {
+        // 그 외(빌드, 디바이스)는 기본 카메라 사용
+        return Camera.main.transform;
     }
 
 

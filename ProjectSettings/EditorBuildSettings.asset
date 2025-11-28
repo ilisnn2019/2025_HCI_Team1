@@ -13,11 +13,11 @@ EditorBuildSettings:
     guid: b003e23c4a135784e9ce7c4739a4fbe6
   - enabled: 1
     path: Assets/01.Scenes/Main/Record.unity
-    guid: d2e1820fadcc258428617444593980b5
-  - enabled: 1
+    guid: f6c8bda002a2aa34db8a3a09ef2a1ae2
+  - enabled: 0
     path: Assets/01.Scenes/SampleScene.unity
     guid: 99c9720ab356a0642a771bea13969a05
-  - enabled: 1
+  - enabled: 0
     path: Assets/01.Scenes/ImageTrackingDemo.unity
     guid: 6f5d9dbedffdc724eb36aed0deb767dc
   - enabled: 1

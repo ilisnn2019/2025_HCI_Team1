@@ -2086,7 +2086,7 @@ MonoBehaviour:
   trackedImageManager: {fileID: 2103693796}
   pagePrefabs:
   - imageName: Page1
-    prefab: {fileID: 1405784522747061223, guid: 4850ac6df8dab3f4882085e4291a8785, type: 3}
+    prefab: {fileID: 8030564604569905649, guid: 04c3f4380af57a141ad954df8603a894, type: 3}
   - imageName: Page2
     prefab: {fileID: 1405784522747061223, guid: 82c4dc73d440e9c40997ed66ec8bad1a, type: 3}
   - imageName: Page3

@@ -588,8 +588,8 @@ Transform:
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_ConstrainProportionsScale: 0
+  m_LocalScale: {x: 0.008, y: 0.008, z: 0.008}
+  m_ConstrainProportionsScale: 1
   m_Children:
   - {fileID: 6865820104082662666}
   - {fileID: 932512242782375764}
@@ -851,7 +851,7 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 3952135125466828230}
+      - m_Target: {fileID: 8059374565053533369}
         m_TargetAssemblyTypeName: UnityEngine.GameObject, UnityEngine
         m_MethodName: SetActive
         m_Mode: 6
@@ -2023,10 +2023,14 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 4616264356485686137, guid: b14c18a662975be45a350c408f95aeee, type: 3}
       propertyPath: m_Events.m_Events.Array.data[1].m_PersistentCalls.m_Calls.Array.size
-      value: 2
+      value: 3
       objectReference: {fileID: 0}
     - target: {fileID: 4616264356485686137, guid: b14c18a662975be45a350c408f95aeee, type: 3}
       propertyPath: m_Events.m_Events.Array.data[1].m_PersistentCalls.m_Calls.Array.data[1].m_Mode
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 4616264356485686137, guid: b14c18a662975be45a350c408f95aeee, type: 3}
+      propertyPath: m_Events.m_Events.Array.data[1].m_PersistentCalls.m_Calls.Array.data[2].m_Mode
       value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 4616264356485686137, guid: b14c18a662975be45a350c408f95aeee, type: 3}
@@ -2038,15 +2042,27 @@ PrefabInstance:
       value: 
       objectReference: {fileID: 6336645947113621851}
     - target: {fileID: 4616264356485686137, guid: b14c18a662975be45a350c408f95aeee, type: 3}
+      propertyPath: m_Events.m_Events.Array.data[1].m_PersistentCalls.m_Calls.Array.data[2].m_Target
+      value: 
+      objectReference: {fileID: 6336645947113621851}
+    - target: {fileID: 4616264356485686137, guid: b14c18a662975be45a350c408f95aeee, type: 3}
       propertyPath: m_Events.m_Events.Array.data[1].m_PersistentCalls.m_Calls.Array.data[1].m_CallState
       value: 2
       objectReference: {fileID: 0}
     - target: {fileID: 4616264356485686137, guid: b14c18a662975be45a350c408f95aeee, type: 3}
+      propertyPath: m_Events.m_Events.Array.data[1].m_PersistentCalls.m_Calls.Array.data[2].m_CallState
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 4616264356485686137, guid: b14c18a662975be45a350c408f95aeee, type: 3}
       propertyPath: m_Events.m_Events.Array.data[1].m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
-      value: InitializeRecorder
+      value: RequestMic
       objectReference: {fileID: 0}
     - target: {fileID: 4616264356485686137, guid: b14c18a662975be45a350c408f95aeee, type: 3}
       propertyPath: m_Events.m_Events.Array.data[1].m_PersistentCalls.m_Calls.Array.data[1].m_MethodName
+      value: InitializeRecorder
+      objectReference: {fileID: 0}
+    - target: {fileID: 4616264356485686137, guid: b14c18a662975be45a350c408f95aeee, type: 3}
+      propertyPath: m_Events.m_Events.Array.data[1].m_PersistentCalls.m_Calls.Array.data[2].m_MethodName
       value: OpenMicrophone
       objectReference: {fileID: 0}
     - target: {fileID: 4616264356485686137, guid: b14c18a662975be45a350c408f95aeee, type: 3}
@@ -2054,8 +2070,20 @@ PrefabInstance:
       value: VoiceRecorder, Assembly-CSharp
       objectReference: {fileID: 0}
     - target: {fileID: 4616264356485686137, guid: b14c18a662975be45a350c408f95aeee, type: 3}
+      propertyPath: m_Events.m_Events.Array.data[1].m_PersistentCalls.m_Calls.Array.data[2].m_TargetAssemblyTypeName
+      value: VoiceRecorder, Assembly-CSharp
+      objectReference: {fileID: 0}
+    - target: {fileID: 4616264356485686137, guid: b14c18a662975be45a350c408f95aeee, type: 3}
       propertyPath: m_Events.m_Events.Array.data[1].m_PersistentCalls.m_Calls.Array.data[1].m_Arguments.m_ObjectArgumentAssemblyTypeName
       value: UnityEngine.Object, UnityEngine
+      objectReference: {fileID: 0}
+    - target: {fileID: 4616264356485686137, guid: b14c18a662975be45a350c408f95aeee, type: 3}
+      propertyPath: m_Events.m_Events.Array.data[1].m_PersistentCalls.m_Calls.Array.data[2].m_Arguments.m_ObjectArgumentAssemblyTypeName
+      value: UnityEngine.Object, UnityEngine
+      objectReference: {fileID: 0}
+    - target: {fileID: 5236659843559767078, guid: b14c18a662975be45a350c408f95aeee, type: 3}
+      propertyPath: scaler
+      value: 0.008
       objectReference: {fileID: 0}
     - target: {fileID: 5580574823958764075, guid: b14c18a662975be45a350c408f95aeee, type: 3}
       propertyPath: m_InitialState

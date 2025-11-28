@@ -49,8 +49,14 @@ public class VoiceRecorder : MonoBehaviour
 
     public UnityEvent<string> onTimelineHandler;
 
-    //재녹음 시 덮어쓰기 위해 최근 저장 파일 경로 기억
+    // 재녹음 시 덮어쓰기 위해 최근 저장 파일 경로 기억
     private string lastRecordedFilePath = null;
+
+    // --- 실시간 볼륨 감지 ---
+    private float voiceDetectTimer = 0f;
+    private float exceptionCooldownTimer = 0f;
+    private const float DETECT_DURATION = 2f;
+    private const float EXCEPTION_COOLDOWN = 2f;
 
     private void Awake()
     {
@@ -58,18 +64,29 @@ public class VoiceRecorder : MonoBehaviour
         if (!Directory.Exists(filedir)) Directory.CreateDirectory(filedir);
     }
 
-    private void Start()
+    private void RequestMicPermission()
     {
+#if UNITY_ANDROID
+        if (!UnityEngine.Android.Permission.HasUserAuthorizedPermission(UnityEngine.Android.Permission.Microphone))
+        {
+            UnityEngine.Android.Permission.RequestUserPermission(UnityEngine.Android.Permission.Microphone);
+            Debug.Log("Requested microphone permission. Please allow it in the popup.");
+        }
+#endif
+
+        // 권한이 이미 있거나, 팝업 호출 후 마이크 오픈 시점에서 다시 체크
         InitializeRecorder();
+    }
+    public void RequestMic()
+    {
+        RequestMicPermission();
     }
 
     public void InitializeRecorder()
     {
-        // 마이크 정리
         if (isMicOpen)
             CloseMicrophone();
 
-        // 상태 초기화
         isRecording = false;
         micDetected = false;
         exception1Enabled = true;
@@ -86,42 +103,53 @@ public class VoiceRecorder : MonoBehaviour
 
         lastRecordedFilePath = null;
 
-        // UI 초기화
         currentState = RecordState.Idle;
         img_record.sprite = spt_record;
         img_record_rec.enabled = false;
-
     }
 
-    // --- 타임스탬프 파일명 생성 ---
     private string GenerateFileName()
     {
         string timestamp = DateTime.Now.ToString("yyyyMMdd_HHmmss_fff");
         return $"voice_record_{timestamp}.wav";
     }
 
-    // --- 마이크 열기 ---
     public void OpenMicrophone()
     {
+        if (isMicOpen) return;
+
         if (Microphone.devices.Length == 0)
         {
             Debug.LogError("No microphone detected!");
             return;
         }
 
-        if (isMicOpen)
+        micDevice = Microphone.devices[0];
+
+        micClip = Microphone.Start(micDevice, true, 30, 44100);
+
+        StartCoroutine(WaitMicStart());
+    }
+
+    private IEnumerator WaitMicStart()
+    {
+        float timeout = 2f;
+
+        while (Microphone.GetPosition(micDevice) <= 0 && timeout > 0)
         {
-            Debug.LogWarning("Microphone already open!");
-            return;
+            timeout -= Time.deltaTime;
+            yield return null;
         }
 
-        micDevice = Microphone.devices[0];
-        micClip = Microphone.Start(micDevice, true, 10, 16000);
+        if (timeout <= 0)
+        {
+            Debug.LogError("Microphone failed to start!");
+            yield break;
+        }
+
         isMicOpen = true;
-
-        Debug.Log($"Microphone opened: {micDevice}");
-
         micMonitorCoroutine = StartCoroutine(MonitorMicLevel());
+        Debug.Log("Microphone opened successfully");
     }
 
     public void CloseMicrophone()
@@ -140,12 +168,6 @@ public class VoiceRecorder : MonoBehaviour
 
         Debug.Log("Microphone closed.");
     }
-
-    // --- 실시간 볼륨 감지 ---
-    private float voiceDetectTimer = 0f;
-    private float exceptionCooldownTimer = 0f;
-    private const float DETECT_DURATION = 2f;
-    private const float EXCEPTION_COOLDOWN = 2f;
 
     private IEnumerator MonitorMicLevel()
     {
@@ -195,7 +217,6 @@ public class VoiceRecorder : MonoBehaviour
         }
     }
 
-    // --- 버튼 핸들러 ---
     public void OnRecordButtonPressed()
     {
         switch (currentState)
@@ -203,23 +224,20 @@ public class VoiceRecorder : MonoBehaviour
             case RecordState.Idle:
                 StartRecording();
                 break;
-
             case RecordState.Recording:
                 StopRecording();
                 break;
-
             case RecordState.Finished:
                 StartRecording(); // 재녹음
                 break;
         }
     }
 
-    // --- 녹음 시작 ---
     public void StartRecording()
     {
-        if (!isMicOpen || micClip == null)
+        if (!isMicOpen || micClip == null || Microphone.GetPosition(micDevice) <= 0)
         {
-            Debug.LogError("Microphone not open!");
+            Debug.LogWarning("Microphone not ready.");
             return;
         }
 
@@ -233,12 +251,9 @@ public class VoiceRecorder : MonoBehaviour
         img_record.sprite = spt_stop;
         img_record_rec.enabled = true;
 
-        Debug.Log($"Recording started at {recordStartPos}");
-
         StartCoroutine(CheckSilenceAndStop());
     }
 
-    // --- 무음 감지 ---
     private IEnumerator CheckSilenceAndStop()
     {
         float[] samples = new float[SAMPLE_SIZE];
@@ -282,7 +297,6 @@ public class VoiceRecorder : MonoBehaviour
         }
     }
 
-    // --- 녹음 종료 ---
     public void StopRecording()
     {
         if (!isRecording) return;
@@ -291,15 +305,12 @@ public class VoiceRecorder : MonoBehaviour
         img_record_rec.enabled = false;
 
         recordEndPos = Microphone.GetPosition(micDevice);
-
         if (recordEndPos < recordStartPos)
             recordEndPos += micClip.samples;
 
         int length = recordEndPos - recordStartPos;
-
         float[] samples = new float[length * micClip.channels];
         int startPosMod = recordStartPos % micClip.samples;
-
         micClip.GetData(samples, startPosMod);
 
         AudioClip clip = AudioClip.Create("RecordedClip", length, micClip.channels, micClip.frequency, false);
@@ -308,21 +319,18 @@ public class VoiceRecorder : MonoBehaviour
         AudioClip trimmedClip = TrimSilence(clip, SILENCE_THRESHOLD);
         byte[] wavData = AudioClipToWav(trimmedClip);
 
-        //새 파일인지, 재녹음인지 구분
         if (lastRecordedFilePath == null)
         {
             string filename = GenerateFileName();
             filepath = Path.Combine(filedir, filename);
-            SaveMetadata(filepath, "변비 탐정 실룩\n사라진 고등어 인형", "너는 꿈이 있니?\n나중에 어른이 되면 뭐 하고 싶어?"); //일단 정적으로 할당
+            SaveMetadata(filepath, "변비 탐정 실룩\n사라진 고등어 인형", "너는 꿈이 있니?\n나중에 어른이 되면 뭐 하고 싶어?");
         }
         else
         {
-            filepath = lastRecordedFilePath; // 재녹음 → 기존 파일 덮어쓰기
+            filepath = lastRecordedFilePath;
         }
 
         File.WriteAllBytes(filepath, wavData);
-
-        // 저장된 파일 경로 기록
         lastRecordedFilePath = filepath;
 
         Debug.Log("Saved to: " + filepath);
@@ -333,7 +341,6 @@ public class VoiceRecorder : MonoBehaviour
         onTimelineHandler?.Invoke("Re-Record");
     }
 
-    // --- 강제 종료 ---
     public void ForceStopWithoutSave()
     {
         if (isRecording)
@@ -346,7 +353,6 @@ public class VoiceRecorder : MonoBehaviour
         }
     }
 
-    // --- 무음 제거 ---
     private AudioClip TrimSilence(AudioClip clip, float threshold)
     {
         float[] samples = new float[clip.samples * clip.channels];
@@ -379,7 +385,6 @@ public class VoiceRecorder : MonoBehaviour
         return trimmedClip;
     }
 
-    // --- WAV 변환 ---
     private byte[] AudioClipToWav(AudioClip clip)
     {
         using (MemoryStream stream = new MemoryStream())
@@ -438,7 +443,6 @@ public class VoiceRecorder : MonoBehaviour
 
     private void SaveMetadata(string filepath, string title, string content)
     {
-
         VoiceMetadata data = new VoiceMetadata()
         {
             title = title,

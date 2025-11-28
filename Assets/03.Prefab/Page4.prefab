@@ -1105,7 +1105,7 @@ PlayableDirector:
   - key: {fileID: 2459323219794877831, guid: 639db305eab8f514ab1187b61663f626, type: 2}
     value: {fileID: 1568219674995876966}
   - key: {fileID: 882577987080158440, guid: 639db305eab8f514ab1187b61663f626, type: 2}
-    value: {fileID: 0}
+    value: {fileID: 6904256957016365634}
   - key: {fileID: -5537060533791742248, guid: 639db305eab8f514ab1187b61663f626, type: 2}
     value: {fileID: 6904256957016365634}
   m_ExposedReferences:
@@ -1142,6 +1142,7 @@ MonoBehaviour:
     relativePosition: {x: 9.92, y: -2.6779003, z: 19.906849}
     rotation: {x: 25, y: 90, z: -25}
     time: 3
+  scaler: 0.008
   obj: {fileID: 8806036844516217248}
   output: {x: 9.92, y: -2.6779003, z: 19.906849}
 --- !u!114 &401234325973445805
@@ -1215,7 +1216,7 @@ Transform:
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_LocalScale: {x: 0.008, y: 0.008, z: 0.008}
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 8806036844516217248}

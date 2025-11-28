@@ -78,16 +78,6 @@ MonoBehaviour:
     m_Name: Octopus
     m_Texture: {fileID: 2800000, guid: 2a2d0d2f9fc14e34a8da0285f3b0d0fe, type: 3}
   - m_SerializedGuid:
-      m_GuidLow: 5253695131818304584
-      m_GuidHigh: 2724770691451146890
-    m_SerializedTextureGuid:
-      m_GuidLow: 17119517689752814092
-      m_GuidHigh: 6146473433368193944
-    m_Size: {x: 0.1, y: 0.1}
-    m_SpecifySize: 1
-    m_Name: Dolphine
-    m_Texture: {fileID: 2800000, guid: bfbb820cbea2ed94986b49b105a94c55, type: 3}
-  - m_SerializedGuid:
       m_GuidLow: 5354022373683906847
       m_GuidHigh: 16133963547573614771
     m_SerializedTextureGuid:
