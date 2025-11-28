@@ -509,13 +509,13 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 410087039}
   serializedVersion: 2
-  m_LocalRotation: {x: 0.40821788, y: -0.23456968, z: 0.10938163, w: 0.8754261}
+  m_LocalRotation: {x: 0.25297198, y: 0.21034706, z: -0.044362146, w: 0.94328755}
   m_LocalPosition: {x: 0, y: 3, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 0}
-  m_LocalEulerAnglesHint: {x: 50, y: -30, z: 0}
+  m_LocalEulerAnglesHint: {x: 29.73, y: 25.54, z: 1.5}
 --- !u!114 &410087042
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2285,9 +2285,41 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: -4396642182433536433, guid: 641c74d576f7620418b4693a46754218, type: 3}
+      propertyPath: m_CastShadows
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: -836642298198669774, guid: 641c74d576f7620418b4693a46754218, type: 3}
+      propertyPath: m_CastShadows
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 919132149155446097, guid: 641c74d576f7620418b4693a46754218, type: 3}
       propertyPath: m_Name
       value: naru
+      objectReference: {fileID: 0}
+    - target: {fileID: 1302915658195398492, guid: 641c74d576f7620418b4693a46754218, type: 3}
+      propertyPath: m_CastShadows
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1302915658195398492, guid: 641c74d576f7620418b4693a46754218, type: 3}
+      propertyPath: m_Materials.Array.size
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 1302915658195398492, guid: 641c74d576f7620418b4693a46754218, type: 3}
+      propertyPath: 'm_Materials.Array.data[0]'
+      value: 
+      objectReference: {fileID: 2100000, guid: 0ef1e4935ecc96a49aeab511f791c833, type: 2}
+    - target: {fileID: 1302915658195398492, guid: 641c74d576f7620418b4693a46754218, type: 3}
+      propertyPath: 'm_Materials.Array.data[1]'
+      value: 
+      objectReference: {fileID: 2100000, guid: 051e2af7153f5d248b86cfc851a89d5d, type: 2}
+    - target: {fileID: 1302915658195398492, guid: 641c74d576f7620418b4693a46754218, type: 3}
+      propertyPath: 'm_Materials.Array.data[2]'
+      value: 
+      objectReference: {fileID: 2100000, guid: 4495a5d31894e2a48806b21ab952ca6e, type: 2}
+    - target: {fileID: 1630794972795428178, guid: 641c74d576f7620418b4693a46754218, type: 3}
+      propertyPath: m_CastShadows
+      value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -2296,6 +2328,9 @@ PrefabInstance:
     - targetCorrespondingSourceObject: {fileID: 919132149155446097, guid: 641c74d576f7620418b4693a46754218, type: 3}
       insertIndex: -1
       addedObject: {fileID: 1712455967}
+    - targetCorrespondingSourceObject: {fileID: 919132149155446097, guid: 641c74d576f7620418b4693a46754218, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 1712455968}
   m_SourcePrefab: {fileID: 100100000, guid: 641c74d576f7620418b4693a46754218, type: 3}
 --- !u!4 &1712455965 stripped
 Transform:
@@ -2317,7 +2352,7 @@ Animator:
   m_GameObject: {fileID: 1712455966}
   m_Enabled: 1
   m_Avatar: {fileID: 9000000, guid: 21c06affcb6c7c140b140399f8173b16, type: 3}
-  m_Controller: {fileID: 9100000, guid: 3bc3431c9e868074db41acf2d4261e8d, type: 2}
+  m_Controller: {fileID: 9100000, guid: f9f70b09519b7c94d8de07448deb7662, type: 2}
   m_CullingMode: 0
   m_UpdateMode: 0
   m_ApplyRootMotion: 0
@@ -2329,6 +2364,22 @@ Animator:
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorStateOnDisable: 0
   m_WriteDefaultValuesOnDisable: 0
+--- !u!111 &1712455968
+Animation:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1712455966}
+  m_Enabled: 1
+  serializedVersion: 4
+  m_Animation: {fileID: 7400000, guid: 0f5b659ceed347d4f8f119bf7afca7e1, type: 2}
+  m_Animations: []
+  m_WrapMode: 0
+  m_PlayAutomatically: 1
+  m_AnimatePhysics: 0
+  m_UpdateMode: 0
+  m_CullingType: 0
 --- !u!1 &1751026403
 GameObject:
   m_ObjectHideFlags: 0
