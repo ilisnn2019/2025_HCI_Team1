@@ -1120,15 +1120,15 @@ RectTransform:
   m_GameObject: {fileID: 5164169975636803597}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_ConstrainProportionsScale: 0
+  m_LocalScale: {x: 1.7, y: 1.7, z: 1.7}
+  m_ConstrainProportionsScale: 1
   m_Children:
   - {fileID: 850954727282835162}
   m_Father: {fileID: 2495196251218885812}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 1374.4196, y: 616.6003}
+  m_AnchoredPosition: {x: 1304, y: 590}
   m_SizeDelta: {x: 80, y: 80}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!222 &7584849068887701639
@@ -2241,7 +2241,7 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 2918596503342691400, guid: eb5c97a1221d0204a86d7f217db15773, type: 3}
       propertyPath: time
-      value: 5.5
+      value: 3
       objectReference: {fileID: 0}
     - target: {fileID: 2918596503342691400, guid: eb5c97a1221d0204a86d7f217db15773, type: 3}
       propertyPath: quest
@@ -2571,9 +2571,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 33f845ffe9908ea4abf12b683561ac01, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  duration: 8
-  startLocalY: -100
-  endLocalY: 100
+  duration: 6
+  startLocalY: -150
+  endLocalY: 200
   startScale: 0.000001
   endScale: 0.1
 --- !u!4 &8682772635077179637 stripped
@@ -3035,7 +3035,7 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 2918596503342691400, guid: eb5c97a1221d0204a86d7f217db15773, type: 3}
       propertyPath: time
-      value: 3
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 2918596503342691400, guid: eb5c97a1221d0204a86d7f217db15773, type: 3}
       propertyPath: quest
