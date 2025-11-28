@@ -63,7 +63,7 @@ MonoBehaviour:
     m_SerializedTextureGuid:
       m_GuidLow: 3667223160482969150
       m_GuidHigh: 3596169348357461288
-    m_Size: {x: 0.1, y: 0.1}
+    m_Size: {x: 0.2, y: 0.2}
     m_SpecifySize: 1
     m_Name: BlueFish
     m_Texture: {fileID: 2800000, guid: e0ac363e980832e42895fe10f828e831, type: 3}
@@ -73,7 +73,7 @@ MonoBehaviour:
     m_SerializedTextureGuid:
       m_GuidLow: 5635304685732433199
       m_GuidHigh: 18361370240744610472
-    m_Size: {x: 0.1, y: 0.1}
+    m_Size: {x: 0.2, y: 0.2}
     m_SpecifySize: 1
     m_Name: Octopus
     m_Texture: {fileID: 2800000, guid: 2a2d0d2f9fc14e34a8da0285f3b0d0fe, type: 3}
