@@ -2,7 +2,9 @@
 using System.Collections;
 using System.Collections.Generic;
 using System.IO;
+using System.Threading.Tasks;
 using UnityEngine;
+using UnityEngine.Audio;
 using UnityEngine.Events;
 using UnityEngine.UI;
 
@@ -297,6 +299,7 @@ public class VoiceRecorder : MonoBehaviour
         }
     }
 
+    /*
     public void StopRecording()
     {
         if (!isRecording) return;
@@ -340,6 +343,87 @@ public class VoiceRecorder : MonoBehaviour
 
         onTimelineHandler?.Invoke("Re-Record");
     }
+    */
+
+    public async void StopRecording()
+    {
+        if (!isRecording) return;
+        isRecording = false;
+
+        img_record_rec.enabled = false;
+
+        // 1. Raw 데이터 추출
+        recordEndPos = Microphone.GetPosition(micDevice);
+        if (recordEndPos < recordStartPos)
+            recordEndPos += micClip.samples;
+
+        int length = recordEndPos - recordStartPos;
+        float[] samples = new float[length * micClip.channels];
+        int startPosMod = recordStartPos % micClip.samples;
+        micClip.GetData(samples, startPosMod);
+
+        AudioClip clip = AudioClip.Create(
+            "RecordedClip",
+            length,
+            micClip.channels,
+            micClip.frequency,
+            false
+        );
+        clip.SetData(samples, 0);
+
+        // 2. 무음 Trim
+        AudioClip trimmedClip = TrimSilence(clip, SILENCE_THRESHOLD);
+
+        // 3. WAV 변환
+        byte[] wavData = AudioClipToWav(trimmedClip);
+
+        // 4. 파일 경로 생성/유지
+        if (lastRecordedFilePath == null)
+        {
+            string filename = GenerateFileName();   // ex: 20250101_140022.wav
+            filepath = Path.Combine(filedir, filename);
+        }
+        else
+        {
+            filepath = lastRecordedFilePath;
+        }
+
+        // 5. WAV 저장 (동기파일 저장)
+        File.WriteAllBytes(filepath, wavData);
+        Debug.Log("Saved WAV to: " + filepath);
+
+        lastRecordedFilePath = filepath;
+
+        // 6. Whisper STT 호출
+        Debug.Log("Sending to Whisper: " + filepath);
+
+        string whisperJson;
+
+        try
+        {
+            whisperJson = await WhisperSTT.TranscribeAsync(filepath, "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");
+            Debug.Log("Whisper STT Success: " + whisperJson);
+        }
+        catch (Exception e)
+        {
+            Debug.LogError("Whisper Error: " + e);
+            whisperJson = "{\"error\":\"Whisper failed\"}";
+        }
+
+        // -------------------------
+        // 7. Meta JSON 저장
+        // -------------------------
+        await SaveMetaAsync(filepath, "변비 탐정 실룩\n사라진 고등어 인형","너는 꿈이 있니?\n나중에 어른이 되면 뭐 하고 싶어?", whisperJson);
+        Debug.Log("Saved STT Meta JSON");
+
+        // -------------------------
+        // 8. UI 및 상태 업데이트
+        // -------------------------
+        currentState = RecordState.Finished;
+        img_record.sprite = spt_re_record;
+        onTimelineHandler?.Invoke("Re-Record");
+    }
+
 
     public void ForceStopWithoutSave()
     {
@@ -434,19 +518,27 @@ public class VoiceRecorder : MonoBehaviour
         stream.Write(BitConverter.GetBytes(samples * channels * 2), 0, 4);
     }
 
-    [System.Serializable]
-    class VoiceMetadata
-    {
-        public string title;
-        public string content;
-    }
-
-    private void SaveMetadata(string filepath, string title, string content)
+    async Task SaveMetaAsync(string wavPath, string title, string content, string reply)
     {
         VoiceMetadata data = new VoiceMetadata()
         {
             title = title,
-            content = content
+            content = content,
+            reply = reply
+        };
+
+        string json = JsonUtility.ToJson(data, true);
+        string metaPath = Path.ChangeExtension(wavPath, ".json");
+        await File.WriteAllTextAsync(metaPath, json);
+    }
+
+    private void SaveMetadata(string filepath, string title, string content, string reply)
+    {
+        VoiceMetadata data = new VoiceMetadata()
+        {
+            title = title,
+            content = content,
+            reply = reply
         };
 
         string json = JsonUtility.ToJson(data, true);
