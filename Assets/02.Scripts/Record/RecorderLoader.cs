@@ -55,6 +55,7 @@ public class RecorderLoader : MonoBehaviour
         // JSON 메타 읽기
         string title = "";
         string content = "";
+        string reply = "";
         string jsonPath = Path.ChangeExtension(wavPath, ".json");
 
         if (File.Exists(jsonPath))
@@ -62,6 +63,7 @@ public class RecorderLoader : MonoBehaviour
             var meta = JsonUtility.FromJson<VoiceMetadata>(File.ReadAllText(jsonPath));
             title = meta.title;
             content = meta.content;
+            reply = WhisperSTT.ExtractReplyText(meta.reply);
         }
 
         string url = "file://" + wavPath;
@@ -85,7 +87,7 @@ public class RecorderLoader : MonoBehaviour
         }
 
         // UI 초기화 (모든 데이터 입력)
-        ui.Init(dateString, title, content, clip, audioSource);
+        ui.Init(dateString, title, content, reply, clip, audioSource);
     }
 
     public static bool TryParseVoiceFile(string filePath, out DateTime dateTime)
@@ -115,4 +117,5 @@ public class VoiceMetadata
 {
     public string title;
     public string content;
+    public string reply;
 }

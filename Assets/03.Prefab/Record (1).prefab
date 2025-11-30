@@ -125,6 +125,7 @@ MonoBehaviour:
   dateText: {fileID: 2922247296227261918}
   titleText: {fileID: 627381259937909843}
   contentText: {fileID: 2720531450668480935}
+  replyText: {fileID: 1309274613067455790}
   playButton: {fileID: 4284815264053849371}
   audioSource: {fileID: 7487383174935238827, guid: 397b28d972167d241a8f860e8f74678a, type: 3}
 --- !u!1 &1028968723696010028
