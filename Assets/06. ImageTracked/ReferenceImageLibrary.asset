@@ -31,39 +31,39 @@ MonoBehaviour:
       m_GuidLow: 5053081219155407467
       m_GuidHigh: 8250442783448810914
     m_SerializedTextureGuid:
-      m_GuidLow: 12737439265564482407
-      m_GuidHigh: 12736434983266796984
-    m_Size: {x: 0.45, y: 0.29698935}
+      m_GuidLow: 7256425224028522648
+      m_GuidHigh: 995099975874357707
+    m_Size: {x: 0.45, y: 0.28472257}
     m_SpecifySize: 1
     m_Name: Page2
-    m_Texture: {fileID: 2800000, guid: b4155b677986b0c4b8c5790223e8c0b0, type: 3}
+    m_Texture: {fileID: 2800000, guid: 89678898004b64b4cba9fde1274ecf0d, type: 3}
   - m_SerializedGuid:
       m_GuidLow: 5215928376188554885
       m_GuidHigh: 1102665456552046248
     m_SerializedTextureGuid:
-      m_GuidLow: 7765415831361550983
-      m_GuidHigh: 10283741437397135226
-    m_Size: {x: 0.45, y: 0.29508197}
+      m_GuidLow: 10715263184471613478
+      m_GuidHigh: 14509630058889731419
+    m_Size: {x: 0.45, y: 0.2811303}
     m_SpecifySize: 1
     m_Name: Page3
-    m_Texture: {fileID: 2800000, guid: 417ffa874c8e6bc47a6f050a5a30b78e, type: 3}
+    m_Texture: {fileID: 2800000, guid: 29406026431894b45bdd73caa98f5cc9, type: 3}
   - m_SerializedGuid:
       m_GuidLow: 5713532003016906922
       m_GuidHigh: 15448680446970289085
     m_SerializedTextureGuid:
-      m_GuidLow: 447110508718343751
-      m_GuidHigh: 11810509771639891480
-    m_Size: {x: 0.45, y: 0.2839142}
+      m_GuidLow: 17115067491704578313
+      m_GuidHigh: 15109173602919901259
+    m_Size: {x: 0.45, y: 0.27079645}
     m_SpecifySize: 1
     m_Name: Page4
-    m_Texture: {fileID: 2800000, guid: 8780464774a306341826e002105ce7a3, type: 3}
+    m_Texture: {fileID: 2800000, guid: 45e32109ef34ed844be8bf0b5791aed1, type: 3}
   - m_SerializedGuid:
       m_GuidLow: 5079643951779331178
       m_GuidHigh: 6989175498137080484
     m_SerializedTextureGuid:
       m_GuidLow: 7576222713106852089
       m_GuidHigh: 9379942827587903419
-    m_Size: {x: 0.2, y: 0.11964286}
+    m_Size: {x: 0.143, y: 0.085544646}
     m_SpecifySize: 1
     m_Name: BlueFish
     m_Texture: {fileID: 2800000, guid: c1fae8f9266a6924bb9fd9fb4d402c82, type: 3}
@@ -73,7 +73,7 @@ MonoBehaviour:
     m_SerializedTextureGuid:
       m_GuidLow: 7306069852236398027
       m_GuidHigh: 15641205940723849914
-    m_Size: {x: 0.2, y: 0.11964286}
+    m_Size: {x: 0.143, y: 0.085544646}
     m_SpecifySize: 1
     m_Name: Octopus
     m_Texture: {fileID: 2800000, guid: 46bdbdcb5fd26564ba1a93b3eeb910d9, type: 3}
@@ -81,19 +81,19 @@ MonoBehaviour:
       m_GuidLow: 5354022373683906847
       m_GuidHigh: 16133963547573614771
     m_SerializedTextureGuid:
-      m_GuidLow: 2167439638373531966
-      m_GuidHigh: 7703421925538879481
-    m_Size: {x: 0.43380886, y: 0.295082}
+      m_GuidLow: 11431477813446970446
+      m_GuidHigh: 5018684822276937961
+    m_Size: {x: 0.43380886, y: 0.26807103}
     m_SpecifySize: 1
     m_Name: Page5
-    m_Texture: {fileID: 2800000, guid: 155b013e4ade1e14f957b3426d0de86a, type: 3}
+    m_Texture: {fileID: 2800000, guid: 38440c4ec4819ea4e918767741f3a545, type: 3}
   - m_SerializedGuid:
       m_GuidLow: 4741969757354715325
       m_GuidHigh: 7782745929078494340
     m_SerializedTextureGuid:
       m_GuidLow: 6310904685694338669
       m_GuidHigh: 14032302999730447368
-    m_Size: {x: 0.2, y: 0.11964286}
+    m_Size: {x: 0.143, y: 0.085544646}
     m_SpecifySize: 1
     m_Name: Dolphine
     m_Texture: {fileID: 2800000, guid: 0228c66dd660579408e4945f3bc1bcc2, type: 3}
@@ -103,7 +103,7 @@ MonoBehaviour:
     m_SerializedTextureGuid:
       m_GuidLow: 5203028770643521672
       m_GuidHigh: 15692120106700268904
-    m_Size: {x: 0.2, y: 0.11964286}
+    m_Size: {x: 0.143, y: 0.085544646}
     m_SpecifySize: 1
     m_Name: Long
     m_Texture: {fileID: 2800000, guid: 9e583088df1948346865a2bc189cc5d9, type: 3}
@@ -113,7 +113,7 @@ MonoBehaviour:
     m_SerializedTextureGuid:
       m_GuidLow: 7197990718567272632
       m_GuidHigh: 7205407420925809210
-    m_Size: {x: 0.2, y: 0.11964286}
+    m_Size: {x: 0.143, y: 0.085544646}
     m_SpecifySize: 1
     m_Name: Brown
     m_Texture: {fileID: 2800000, guid: 04c2d0b8666c63e43a123f9adfbffe63, type: 3}
